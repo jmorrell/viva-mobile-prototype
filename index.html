@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- <meta name="viewport" content="width=device-width"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  
+  <link rel="stylesheet" type="text/css" href="css/base.css">
+  <link rel="stylesheet" type="text/css" href="css/headers.css">
+  <link rel="stylesheet" type="text/css" href="css/buttons.css">
+  <link rel="stylesheet" type="text/css" href="css/toolbars.css">
+  <link rel="stylesheet" type="text/css" href="css/leaflet.css">
+  <title>VivaReal Prototype</title>
+</head>
+
+<style>
+
+  .main-menu {
+    background-image: url(/images/rio.jpg);
+    background-size: auto 100%;
+    background-origin: border-box;
+    
+    min-height: 500px;
+    color: white;
+    padding: 20px;
+  }
+
+  .main-menu ul {
+    float: right;
+    line-height: 3em;
+  }
+
+  .main-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 2em;
+  }
+
+  .leaflet-control-zoom {
+    display: none;
+  }
+
+  body {
+    padding: 0;
+    margin: 0;
+  }
+
+  html, body {
+    height: 120%;
+  }
+
+  .map {
+    height: 120%;
+    min-height: 400px;
+  }
+
+  #detail img {
+    max-width: 100%;
+  }
+</style>
+
+<body>
+
+  <script type="text/html" id="main-menu">
+    <ul>
+      <li><a href="#map/sp/sao-paulo">Sao Paulo</a></li>
+      <li><a href="#map/rj/rio-de-janeiro">Rio de Janerio</a></li>
+      <li><a href="#map/minas-gerais/belo-horizonte">Belo Horizonte</a></li>
+      <li><a href="#map/parana/curitiba">Curitiba</a></li>
+      <li><a href="#map/bahia/salvador">Salvador</a></li>
+      <li><a href="#map/rio-grande-do-sul/porto-alegre">Porto Alegre</a></li>
+      <li><a href="#map/ceara/fortaleza">Fortaleza</a></li>
+      <li><a href="#map/santa-catarina/florianopolis">Florianopolis</a></li>
+      <li><a href="#map/sp/campinas">Campinas</a></li>
+    </ul>
+  </script>
+
+  <script type="text/html" id="map-view">
+    <section role="region">
+      <header>
+        <menu type="toolbar">
+          <a href="#"><span class="">Search</span></a>
+        </menu>
+        <h1>Map</h1>
+      </header>
+    </section>
+    <div class="map"></div>  
+  </script>
+
+  <script type="text/html" id="detail-view">
+    <section role="region">
+      <header>
+        <button><span class="icon icon-back">back</span></button>
+        <h1>Property Detail</h1>
+      </header>
+    </section>
+    <div class="slider">
+      <ul>
+        <li>
+          <img src="http://imgs.vivareal.com/d60e9397cd11f0f01befaee206e33cd7.jpg">
+        </li>
+        <li>
+          <img src="http://imgs.vivareal.com/f540eef634ac8d89472f8cf54cc16f1a.jpg">
+        </li>
+        <li>
+          <img src="http://imgs.vivareal.com/92756ded57e0a97ac89f711de633179b.jpg">
+        </li>
+      </ul>
+    </div>
+  </script>
+
+  <div class="content"></div>
+
+
+  <script type="text/javascript" src="js/chrome.js"></script>
+  <script type="text/javascript" src="js/underscore.js"></script>
+  <script type="text/javascript" src="js/jquery-2.0.0.js"></script>
+  <script type="text/javascript" src="js/backbone.js"></script>
+  <script type="text/javascript" src="js/backbone.marionette.js"></script>
+  <script type="text/javascript" src="js/browser.js"></script>
+  <script type="text/javascript" src="js/leaflet.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
