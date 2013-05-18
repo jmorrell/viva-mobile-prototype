@@ -10,69 +10,30 @@
   <link rel="stylesheet" type="text/css" href="css/buttons.css">
   <link rel="stylesheet" type="text/css" href="css/toolbars.css">
   <link rel="stylesheet" type="text/css" href="css/leaflet.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
   <title>VivaReal Prototype</title>
 </head>
 
-<style>
+<body class="content">
 
-  .main-menu {
-    background-image: url(/images/rio.jpg);
-    background-size: auto 100%;
-    background-origin: border-box;
-    
-    min-height: 500px;
-    color: white;
-    padding: 20px;
-  }
-
-  .main-menu ul {
-    float: right;
-    line-height: 3em;
-  }
-
-  .main-menu a {
-    color: white;
-    text-decoration: none;
-    font-size: 2em;
-  }
-
-  .leaflet-control-zoom {
-    display: none;
-  }
-
-  body {
-    padding: 0;
-    margin: 0;
-  }
-
-  html, body {
-    height: 120%;
-  }
-
-  .map {
-    height: 120%;
-    min-height: 400px;
-  }
-
-  #detail img {
-    max-width: 100%;
-  }
-</style>
-
-<body>
-
-  <script type="text/html" id="main-menu">
-    <ul>
-      <li><a href="#map/sp/sao-paulo">Sao Paulo</a></li>
-      <li><a href="#map/rj/rio-de-janeiro">Rio de Janerio</a></li>
-      <li><a href="#map/minas-gerais/belo-horizonte">Belo Horizonte</a></li>
-      <li><a href="#map/parana/curitiba">Curitiba</a></li>
-      <li><a href="#map/bahia/salvador">Salvador</a></li>
-      <li><a href="#map/rio-grande-do-sul/porto-alegre">Porto Alegre</a></li>
-      <li><a href="#map/ceara/fortaleza">Fortaleza</a></li>
-      <li><a href="#map/santa-catarina/florianopolis">Florianopolis</a></li>
-      <li><a href="#map/sp/campinas">Campinas</a></li>
-    </ul>
+  <script type="text/html" id="homepage">
+    <div class="main_logo"><img src="images/logo_vr_white.png" alt="VivaReal Logo" height="33" width="119" /></div>
+    <div class="menu_wrapper">
+      <ul class="cities_list">
+        <li><a href="#map/sp/sao-paulo">S&atilde;o Paulo</a></li>
+        <li><a href="#map/rj/rio-de-janeiro">Rio de Janerio</a></li>
+        <li><a href="#map/bahia/salvador">Salvador</a></li>
+        <li><a href="#map/df/brasilia">Bras&iacute;lia</a></li>
+        <li><a href="#map/ceara/fortaleza">Fortaleza</a></li>
+        <li><a href="#map/minas-gerais/belo-horizonte">Belo Horizonte</a></li>
+        <li><a href="#map/parana/curitiba">Curitiba</a></li>
+        <li><a href="#map/pernambuco/recife">Recife</a></li>
+        <li><a href="#map/rio-grande-do-sul/porto-alegre">Porto Alegre</a></li>
+        <li><a href="#map/sp/campinas">Campinas</a></li>
+        <li><a href="#map/para/belem">Bel&eacute;m</a></li>
+        <li><a href="#map/santa-catarina/florianopolis">Florian&oacute;polis</a></li>
+      </ul>
+    </div>
   </script>
 
   <script type="text/html" id="map-view">
@@ -108,9 +69,6 @@
       </ul>
     </div>
   </script>
-
-  <div class="content"></div>
-
 
   <script type="text/javascript" src="js/chrome.js"></script>
   <script type="text/javascript" src="js/underscore.js"></script>

@@ -1,0 +1,80 @@
+
+
+html, body {
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
+  height: 100%;
+}
+body {
+  padding: 0;
+  margin: 0;
+}
+.main_logo {
+  position: relative;
+}
+
+.homepage {
+  background-attachment: fixed;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
+  
+  height: 365px;
+  color: white;
+  padding: 10px;
+  position: relative;
+}
+.bg_sp {
+  background-image: url(/images/bg_home/saopaulo_320x480.jpg);
+}
+.bg_rio {
+  background-image: url(/images/bg_home/rio_320x480.jpg);
+}
+.bg_salvador {
+  background-image: url(/images/bg_home/salvador_320x480.jpg);
+}
+.bg_brasilia {
+  background-image: url(/images/bg_home/brasilia_320x480.jpg);
+}
+.bg_fortaleza {
+  background-image: url(/images/bg_home/fortaleza_320x480.jpg);
+}
+
+.menu_wrapper {
+  border: 1px solid rgba(0, 0, 0, .6);
+  background-color: rgba(0, 0, 0, .4);
+  height: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+.cities_list {
+  line-height: 3em;
+  padding: 0;
+}
+  .cities_list a {
+    color: white;
+    display: block;
+    font-size: 2em;
+    padding: 10px 20px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .8);
+    text-decoration: none;
+  }
+  .cities_list a:active {
+    background-color: rgba(255, 255, 255, .5);
+  }
+
+.leaflet-control-zoom {
+  display: none;
+}
+.map {
+  height: 120%;
+  min-height: 400px;
+}
+
+#detail img {
+  max-width: 100%;
+}
