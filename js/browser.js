@@ -91,17 +91,14 @@ function getQueryString(parameters) {
 function fetchJSON(targetUrl, callback) {
   if ($ && $.ajax) {
     $.get(targetUrl, function(data) {
-      callback(null, data);
+      if (typeof data === "string") {
+        callback(null, JSON.parse(data));
+      } else {
+        callback(null, data);
+      }
     })
     .fail(callback);
   }
-  // request(targetUrl, function(err, res, body) {
-  //   if (err) { 
-  //     callback(err); 
-  //   }
-  //   var json = JSON.parse(body);
-  //   callback(null, json);
-  // });
 }
 
 function getQueryParametersFromCore(core) {
