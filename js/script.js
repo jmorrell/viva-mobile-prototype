@@ -9,114 +9,98 @@ var api = new VivaApi({
 var loc = [-23.5609,-46.6334];
 
 
+
+var MainView = Marionette.ItemView.extend({
+  className: "main-menu",
+  template: "#main-menu" 
+});
+
+
+var MapView = Marionette.ItemView.extend({
+  template: "#map-view",
+
+  onShow: function() {
+   var map = L.map(this.$('.map')[0]).setView(loc, 15);
+
+    // Set up tiles
+    L.tileLayer('http://{s}.tile.cloudmade.com/c4157c3f815445f4a5d9e3c55eafadc0/997/256/{z}/{x}/{y}.png', {
+        minZoom: 8,
+        maxZoom: 18
+    }).addTo(map); 
+  }
+});
+
+var DetailView = Marionette.ItemView.extend({
+  template: "#detail-view"
+});
+
+var Controller = Marionette.Controller.extend({
+  initialize: function(options){
+    this.region = options.region;
+  },
+
+  showMain: function() {
+    var view = new MainView();
+    this.region.show(view);
+  },
+
+  showMap: function() {
+    var view = new MapView();
+    this.region.transitionToView(view, 'slide');
+  },
+
+  showDetail: function() {
+    var view = new DetailView();
+    this.region.show(view);
+  }
+});
+
+var Router = Marionette.AppRouter.extend({
+  appRoutes: {
+    '': 'showMain',
+    'map*path': 'showMap'
+  }
+});
+
 var App = new Marionette.Application();
 
 App.addRegions({
-    "mainRegion": ".content" 
+  mainRegion: {
+    selector: ".content",
+    regionType: PanningRegion
+  }
 });
 
-App.module("Main Menu", function(Mod, App, Backbone, Marionette, $, _) {
-  var MainView = Marionette.ItemView.extend({
-    className: "main-menu",
-    template: "#main-menu" 
+App.addInitializer(function() {
+  var controller = new Controller({
+    region: App.mainRegion
   });
-  
-  var Controller = Marionette.Controller.extend({
-    initialize: function(options){
-      this.region = options.region;
-    },
-    
-    show: function(){
-      var view = new MainView({});
-      this.region.show(view);
-    }
-  });
-    
-  Mod.addInitializer(function(){
-    Mod.controller = new Controller({
-      region: App.mainRegion
-    });
 
-    Mod.controller.show();
+  var router = new Router({
+    controller: controller
   });
 });
 
-/*
-App.module("Map View", function(Mod, App, Backbone, Marionette, $, _) {
-  var MainView = Marionette.ItemView.extend({
-    template: "#map-view",
-
-    onShow: function() {
-     var map = L.map(this.$('.map')[0]).setView(loc, 15);
-
-      // Set up tiles
-      L.tileLayer('http://{s}.tile.cloudmade.com/c4157c3f815445f4a5d9e3c55eafadc0/997/256/{z}/{x}/{y}.png', {
-          minZoom: 8,
-          maxZoom: 18
-      }).addTo(map); 
-    }
-  });
-  
-  var Controller = Marionette.Controller.extend({
-    initialize: function(options){
-      this.region = options.region;
-    },
-    
-    show: function(){
-      var view = new MainView({});
-      this.region.show(view);
-    }
-  });
-    
-  Mod.addInitializer(function(){
-    Mod.controller = new Controller({
-      region: App.mainRegion
-    });
-
-    Mod.controller.show();
-  });
+App.on("initialize:after", function(options){
+  if (Backbone.history){
+    Backbone.history.start();
+  }
 });
-
-App.module("Detail View", function(Mod, App, Backbone, Marionette, $, _) {
-  var MainView = Marionette.ItemView.extend({
-    template: "#detail-view"
-  });
-  
-  var Controller = Marionette.Controller.extend({
-    initialize: function(options){
-      this.region = options.region;
-    },
-    
-    show: function(){
-      var view = new MainView({});
-      this.region.show(view);
-    }
-  });
-    
-  Mod.addInitializer(function(){
-    Mod.controller = new Controller({
-      region: App.mainRegion
-    });
-
-    Mod.controller.show();
-  });
-});
-*/
-
 
 App.start();
 
 
-
-
 /*
-// Set up map
-var map = L.map('map').setView(loc, 15);
+App.module("Detail View", function(Mod, App, Backbone, Marionette, $, _) {
+  Mod.addInitializer(function(){
+    Mod.controller = new Controller({
+      region: App.mainRegion
+    });
 
-// Set up tiles
-L.tileLayer('http://{s}.tile.cloudmade.com/c4157c3f815445f4a5d9e3c55eafadc0/997/256/{z}/{x}/{y}.png', {
-    minZoom: 8,
-    maxZoom: 18
-}).addTo(map);
+    Mod.controller.show();
+  });
+});
 */
+
+
 
