@@ -1,4 +1,10 @@
 
+// Force portrait view
+if (screen && screen.mozLockOrientation) {
+  screen.mozLockOrientation("portrait");
+}
+
+
 // Set up api wrapper
 var api = new VivaApi({
   baseUrl: "http://api.vivareal.com/api/1.0",
