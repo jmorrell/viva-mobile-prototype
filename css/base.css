@@ -118,3 +118,299 @@ footer {
 [role="toolbar"] li button.update {
     background-image: url("../images/toolbars/icons/update.png");
 }
+
+
+/* ----------------------------------
+ * Progress + activities
+ * ---------------------------------- */
+
+/* Spinner */
+progress:not([value]) {
+  background: url(progress_activity/images/ui/default.png) no-repeat center center / 100% auto;
+  animation: 0.9s rotate infinite steps(30);
+  width: 2.9rem;
+  height: 2.9rem;
+  border: none;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+progress:not([value])::-moz-progress-bar {
+ background: none;
+}
+
+/* Progress bar */
+progress[value] {
+  width: 100%;
+  background: #333;
+  border: none;
+  border-radius: 0.3rem;
+  height: 0.3rem;
+  display: block;
+}
+
+progress[value]::-moz-progress-bar {
+  background: #01c5ed;
+  border-radius: 0;
+}
+
+/* Progress bar */
+progress[value].pack-activity {
+  background-image: url(progress_activity/images/ui/activity.png);
+  background-repeat: repeat;
+  background-size: auto 100%;
+  animation: 0.5s move infinite steps(15);
+}
+
+/* Labels */
+p[role="status"] {
+  padding: 0.5rem;
+  font: 300 2.25rem/1.4em "MozTT", Sans-serif;
+  color: #fff;
+}
+
+p[role="status"] progress:not([value]) {
+  margin-right: 0.5rem;
+}
+
+p[role="status"] progress:not([value]) + span {
+  margin-bottom: 0;
+}
+
+p[role="status"] span {
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 0.5rem;
+}
+
+/* Light Activity bar */
+progress[value].pack-activity.light {
+  background-color: #f4f4f4;
+}
+
+
+/* Animations */
+@keyframes rotate {
+  from { transform: rotate(1deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes move {
+  from { background-position: 0 0; }
+  to   { background-position: 1rem 0; }
+}
+
+
+/* ----------------------------------
+ * Lists
+ * ---------------------------------- */
+
+[data-type="list"] {
+  font-family: "MozTT", "Moz", Sans-serif;
+  font-weight: 400;
+  padding: 0 1.5rem;
+}
+
+[data-type="list"] ul {
+  background-color: rgba(230, 230, 230, .7); /* #e6e6e6 */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 1px 1px 1px #666;
+}
+
+[data-type="list"] strong {
+  font-weight: 500;
+}
+
+/* Title divisors */
+[data-type="list"] header {
+  background-color: #75B842;
+  border-bottom: 0.1rem solid #5f9b0a; /* #ff4E00 */
+  padding: 0.5rem 1rem;
+  margin: 10px 0 0;
+  font-size: 1.6rem;
+  line-height: 1.8rem;
+  font-weight: normal;
+  color: white; /*#5f9b0a*/
+  /*color: #ff4E00;*/
+  text-transform: uppercase;
+}
+
+[data-type="list"] header .counter {
+  float: right;
+  font-size: 1.2rem;
+}
+/* List items */
+[data-type="list"] li {
+  width: 100%;
+  height: 7rem;
+  -moz-box-sizing: border-box;
+  transition: transform 0.3s ease, padding 0.3s ease;
+  border-bottom: solid 0.1rem #ccc;
+  color: #000;
+  margin: 0;
+  padding: 0;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+[data-type="list"] li:last-child {
+  border: none;
+}
+
+/* Pressed State */
+[data-type="list"] li > a {
+  text-decoration: none;
+  color: #000;
+  display: block;
+  height: 7rem;
+  position: relative;
+  border: none;
+  outline: none;
+}
+
+[data-type="list"] li > a:after {
+  content: "";
+  background-color: #b1f1ff;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+[data-type="list"] li > a:active:after {
+  opacity: 0.6;
+  /* Only transition on 'press', not on 'release' */
+  transition: opacity 0.2s ease;
+}
+
+/* Disabled */
+[data-type="list"] li[aria-disabled="true"]:after {
+  content: "";
+  background-color: #e6e6e6;
+  opacity: 0.7;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+[data-type="list"] li[aria-disabled="true"] {
+  pointer-events: none;
+}
+
+/* Graphic content */
+[data-type="list"] aside {
+  float: left;
+  margin: 0 0.5rem 0 0;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+[data-type="list"] li > a aside,
+[data-type="list"] li > a aside.icon {
+  background-color: transparent;
+  z-index: -1;
+}
+
+[data-type="list"] aside.pack-end {
+  float: right;
+  margin: 0 0 0 0.5rem;
+  text-align: right;
+}
+
+[data-type="list"] aside.icon {
+  width: 3rem;
+  height: 6rem;
+  background: #fff no-repeat left center / 100% auto;
+  font: 0/0 a;
+  display: block;
+  overflow: hidden;
+}
+
+[data-type="list"] aside img {
+  display: block;
+  overflow: hidden;
+  width: 6rem;
+  height: 6rem;
+  background: transparent center center / cover;
+  position: relative;
+  z-index: 1;
+}
+
+/* Text content */
+[data-type="list"] li p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: none;
+  display: block;
+  margin: 0;
+  color: #5b5b5b;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+[data-type="list"] li p:first-of-type {
+  font-size: 1.8rem;
+  line-height: 2.2rem;
+  color: #000;
+  padding: 1rem 0 0;
+}
+
+[data-type="list"] li p:only-child,
+[data-type="list"] li p:first-of-type:last-of-type {
+  line-height: 4rem;
+}
+
+[data-type="list"] li p em {
+  font-size: 1.5rem;
+  font-style: normal;
+}
+
+[data-type="list"] li p time {
+  margin-right: 0.3rem;
+  text-transform: uppercase;
+}
+
+/* Checkable content */
+[data-type="list"] li > label {
+  pointer-events: none;
+  position: absolute;
+  top: -0.1rem;
+  bottom: 0;
+  right: 0;
+  left: -4rem;
+  z-index: 1;
+  width: auto;
+  height: auto;
+  border-top: solid 0.1rem #dbd9d9;
+}
+
+[data-type="list"] li > label input + span {
+  left: 0;
+  margin-left: 0;
+}
+
+/* Edit mode */
+[data-type="list"] [data-type="edit"] li {
+  transform: translateX(4rem);
+  padding-left: 0;
+}
+
+[data-type="list"] [data-type="edit"] li > label {
+  pointer-events: auto;
+}
+
+[data-type="list"] [data-type="edit"] li > a:active:after {
+  display: none;
+}

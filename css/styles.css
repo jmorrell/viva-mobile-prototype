@@ -6,7 +6,7 @@ html, body {
   height: 100%;
 }
 body {
-  background-color: black;
+  background: url(/images/bg_general.png) repeat 0 0;
   height: auto;
   margin: 0;
   padding: 0;
@@ -53,6 +53,8 @@ body {
   height: 100%;
   overflow: hidden;
   overflow-y: scroll;
+
+  -webkit-overflow-scrolling: touch;
   position: fixed;
   right: 0;
   top: 0;
@@ -98,7 +100,7 @@ body {
 }
 
 .detail-view {
-  background: url(/images/bg_general.png) repeat 0 0;
+  
 }
 
 .slider {
@@ -106,6 +108,7 @@ body {
   height: 150px;
   overflow: hidden;
   overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
   width: 320px;
 }
   .slider ul {
@@ -164,8 +167,14 @@ body {
     line-height: 1.5em;
     padding: 0 10px;
   }
+  
+.list-view {
 
+}
 
+.swipe-left {
+
+}
 
 
 
