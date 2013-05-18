@@ -6,11 +6,16 @@ html, body {
   height: 100%;
 }
 body {
-  padding: 0;
+  background-color: black;
   margin: 0;
+  padding: 0;
 }
 .main_logo {
   position: relative;
+}
+.internal_logo {
+  float: right;
+  margin: 15px 10px 0 0;
 }
 
 .homepage {
@@ -70,11 +75,23 @@ body {
 .leaflet-control-zoom {
   display: none;
 }
+.search_inp {
+  border-radius: 3px;
+  margin: 10px 10px 0;
+  padding: 5px 15px 5px 5px;
+  position: relative;
+  width: 110px;
+}
+.search_inp:after {
+  background: url(/images/icn_search.png) no-repeat 0 0;
+  content: "";
+  height: 15px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 15px;
+}
 .map {
   height: 120%;
   min-height: 400px;
-}
-
-#detail img {
-  max-width: 100%;
 }

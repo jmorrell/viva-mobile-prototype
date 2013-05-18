@@ -17,8 +17,8 @@ App.addRegions({
 
 App.module("Main Menu", function(Mod, App, Backbone, Marionette, $, _) {
   var MainView = Marionette.ItemView.extend({
-    className: "homepage bg_sp",
-    template: "#homepage" 
+    className: "detail-view",
+    template: "#map-view" 
   });
   
   var Controller = Marionette.Controller.extend({
