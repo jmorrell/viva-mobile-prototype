@@ -10,76 +10,38 @@
   <link rel="stylesheet" type="text/css" href="css/buttons.css">
   <link rel="stylesheet" type="text/css" href="css/toolbars.css">
   <link rel="stylesheet" type="text/css" href="css/leaflet.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
   <title>VivaReal Prototype</title>
 </head>
 
-<style>
+<body class="content">
 
-  .main-menu {
-    background-image: url(/images/rio.jpg);
-    background-size: auto 100%;
-    background-origin: border-box;
-    
-    min-height: 500px;
-    color: white;
-    padding: 20px;
-  }
-
-  .main-menu ul {
-    float: right;
-    line-height: 3em;
-  }
-
-  .main-menu a {
-    color: white;
-    text-decoration: none;
-    font-size: 2em;
-  }
-
-  .leaflet-control-zoom {
-    display: none;
-  }
-
-  body {
-    padding: 0;
-    margin: 0;
-  }
-
-  html, body {
-    height: 120%;
-  }
-
-  .map {
-    height: 120%;
-    min-height: 400px;
-  }
-
-  #detail img {
-    max-width: 100%;
-  }
-</style>
-
-<body>
-
-  <script type="text/html" id="main-menu">
-    <ul>
-      <li><a href="#map/sp/sao-paulo">Sao Paulo</a></li>
-      <li><a href="#map/rj/rio-de-janeiro">Rio de Janerio</a></li>
-      <li><a href="#map/minas-gerais/belo-horizonte">Belo Horizonte</a></li>
-      <li><a href="#map/parana/curitiba">Curitiba</a></li>
-      <li><a href="#map/bahia/salvador">Salvador</a></li>
-      <li><a href="#map/rio-grande-do-sul/porto-alegre">Porto Alegre</a></li>
-      <li><a href="#map/ceara/fortaleza">Fortaleza</a></li>
-      <li><a href="#map/santa-catarina/florianopolis">Florianopolis</a></li>
-      <li><a href="#map/sp/campinas">Campinas</a></li>
-    </ul>
+  <script type="text/html" id="homepage">
+    <div class="main_logo"><img src="images/logo_vr_white.png" alt="VivaReal Logo" height="33" width="119" /></div>
+    <div class="menu_wrapper">
+      <ul class="cities_list">
+        <li><a href="#map/sp/sao-paulo">S&atilde;o Paulo</a></li>
+        <li><a href="#map/rj/rio-de-janeiro">Rio de Janerio</a></li>
+        <li><a href="#map/bahia/salvador">Salvador</a></li>
+        <li><a href="#map/df/brasilia">Bras&iacute;lia</a></li>
+        <li><a href="#map/ceara/fortaleza">Fortaleza</a></li>
+        <li><a href="#map/minas-gerais/belo-horizonte">Belo Horizonte</a></li>
+        <li><a href="#map/parana/curitiba">Curitiba</a></li>
+        <li><a href="#map/pernambuco/recife">Recife</a></li>
+        <li><a href="#map/rio-grande-do-sul/porto-alegre">Porto Alegre</a></li>
+        <li><a href="#map/sp/campinas">Campinas</a></li>
+        <li><a href="#map/para/belem">Bel&eacute;m</a></li>
+        <li><a href="#map/santa-catarina/florianopolis">Florian&oacute;polis</a></li>
+      </ul>
+    </div>
   </script>
 
   <script type="text/html" id="map-view">
     <section role="region">
       <header>
+        <div class="internal_logo"><img src="images/logo_vr_white_internal.png" alt="VivaReal Logo" height="20" width="72" /></div>
         <menu type="toolbar">
-          <a href="#"><span class="">Search</span></a>
+          <input class="search_inp" type="search" placeholder="Search" />
         </menu>
         <h1>Map</h1>
       </header>
@@ -90,27 +52,59 @@
   <script type="text/html" id="detail-view">
     <section role="region">
       <header>
+        <div class="internal_logo"><img src="images/logo_vr_white_internal.png" alt="VivaReal Logo" height="20" width="72" /></div>
         <button><span class="icon icon-back">back</span></button>
         <h1>Property Detail</h1>
       </header>
     </section>
     <div class="slider">
       <ul>
-        <li>
+        <li class="sl_img_wrapper">
           <img src="http://imgs.vivareal.com/d60e9397cd11f0f01befaee206e33cd7.jpg">
         </li>
-        <li>
+        <li class="sl_img_wrapper">
           <img src="http://imgs.vivareal.com/f540eef634ac8d89472f8cf54cc16f1a.jpg">
         </li>
-        <li>
+        <li class="sl_img_wrapper">
           <img src="http://imgs.vivareal.com/92756ded57e0a97ac89f711de633179b.jpg">
         </li>
       </ul>
     </div>
+    <div class="detail_info">
+      <h2 class="property_title">Sobrado/Duplex (Casa Padrão) - Venda</h2>
+      <dl class="property_data">
+        <dt>Pre&ccedil;o:</dt>
+        <dd>R$ 600.000</dd>
+
+        <dt>&Aacute;rea:</dt>
+        <dd>186m2</dd>
+
+        <dt>Quartos:</dt>
+        <dd>3</dd>
+
+        <dt>Suites:</dt>
+        <dd>1</dd>
+
+        <dt>Banheiro(s):</dt>
+        <dd>1</dd>
+
+        <dt>Vagas:</dt>
+        <dd>2</dd>
+
+      </dl>
+
+      <h3 class="property_description_title">Localiza&ccedil;&atilde;o</h3>
+      <p class="property_description">
+        Tatuapé, Zona Leste, São Paulo, SP
+      </p>
+
+      <h3 class="property_description_title">Descri&ccedil;&atilde;o</h3>
+      <p class="property_description">
+      Sobrado no Tatuap&eacute; com 186m2 de &aacute;rea &uacute;til, 3 dormit&oacute;rios, sendo 1 su&iacute;te com arm&aacute;rio embutido, closet e hidromassagem, sala, cozinha planejada, despensa, &aacute;rea de servi&ccedil;o, quintal lateral, depend&ecirc;ncias de empregada com banheiro, 2 vagas de garagem. Excelente localiza&ccedil;&atilde;o. cod.:SO0023TD
+      </p>
+
+    </div>
   </script>
-
-  <div class="content"></div>
-
 
   <script type="text/javascript" src="js/chrome.js"></script>
   <script type="text/javascript" src="js/underscore.js"></script>
