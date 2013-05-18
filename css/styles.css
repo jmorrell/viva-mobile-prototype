@@ -1,0 +1,174 @@
+
+
+html, body {
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
+  height: 100%;
+}
+body {
+  background-color: black;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+.main_logo {
+  position: relative;
+}
+.internal_logo {
+  float: right;
+  margin: 15px 10px 0 0;
+}
+
+.homepage {
+  background-attachment: fixed;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
+  
+  height: 365px;
+  color: white;
+  padding: 10px;
+  position: relative;
+}
+.bg_sp {
+  background-image: url(/images/bg_home/saopaulo_320x480.jpg);
+}
+.bg_rio {
+  background-image: url(/images/bg_home/rio_320x480.jpg);
+}
+.bg_salvador {
+  background-image: url(/images/bg_home/salvador_320x480.jpg);
+}
+.bg_brasilia {
+  background-image: url(/images/bg_home/brasilia_320x480.jpg);
+}
+.bg_fortaleza {
+  background-image: url(/images/bg_home/fortaleza_320x480.jpg);
+}
+
+.menu_wrapper {
+  border: 1px solid rgba(0, 0, 0, .6);
+  background-color: rgba(0, 0, 0, .4);
+  height: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+.cities_list {
+  line-height: 3em;
+  padding: 0;
+}
+  .cities_list a {
+    color: white;
+    display: block;
+    font-size: 2em;
+    padding: 10px 20px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .8);
+    text-decoration: none;
+  }
+  .cities_list a:active {
+    background-color: rgba(255, 255, 255, .5);
+  }
+
+.leaflet-control-zoom {
+  display: none;
+}
+.search_inp {
+  border-radius: 3px;
+  margin: 10px 10px 0;
+  padding: 5px 15px 5px 5px;
+  position: relative;
+  width: 110px;
+}
+.search_inp:after {
+  background: url(/images/icn_search.png) no-repeat 0 0;
+  content: "";
+  height: 15px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 15px;
+}
+.map {
+  height: 120%;
+  min-height: 400px;
+}
+
+.detail-view {
+  background: url(/images/bg_general.png) repeat 0 0;
+}
+
+.slider {
+  box-shadow: 0 3px 3px rgba(0, 0, 0, .6);
+  height: 150px;
+  overflow: hidden;
+  overflow-x: scroll;
+  width: 320px;
+}
+  .slider ul {
+    min-width: 582px;
+  }
+  .slider .sl_img_wrapper {
+    float: left;
+    margin-right: 2px;
+  }
+  .slider .sl_img_wrapper:last-child {
+    margin: 0;
+  }
+    .slider .sl_img_wrapper img {
+      display: block;
+      height: 150px;
+
+    }
+
+.detail_info {
+  background-color:  rgba(54, 62, 73, .7);
+  color: #fff;
+  padding: 15px;
+}
+  .property_title {
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
+    /*font-style: italic;*/
+    font-weight: 400;
+    margin: 0 0 .5em;
+    padding-bottom: 5px;
+  }
+  .property_data {
+    /*background-color: rgba(0, 0, 0, .1);*/
+    display: block;
+    font-size: 1.5em;
+    line-height: 1.7em;
+    overflow: hidden;
+    margin: 0;
+    padding: 0 10px;
+  }
+    .property_data dt {
+      clear: left;
+      float: left;
+      font-weight: 100;
+      width: 100px;
+    }
+    .property_data dd {
+      font-style: italic;
+    }
+  .property_description_title {
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
+    font-weight: 400;
+  }
+  .property_description {
+    color: #eee;
+    font-size: 1.3em;
+    line-height: 1.5em;
+    padding: 0 10px;
+  }
+
+
+
+
+
+
+
+

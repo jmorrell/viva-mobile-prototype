@@ -11,8 +11,8 @@ var loc = [-23.5609,-46.6334];
 
 
 var MainView = Marionette.ItemView.extend({
-  className: "main-menu",
-  template: "#main-menu" 
+  className: "homepage bg_sp",
+  template: "#homepage" 
 });
 
 
@@ -45,8 +45,9 @@ var Controller = Marionette.Controller.extend({
   },
 
   showMap: function() {
+    console.log(arguments);
     var view = new MapView();
-    this.region.transitionToView(view, 'slide');
+    this.region.show(view);
   },
 
   showDetail: function() {
@@ -88,19 +89,5 @@ App.on("initialize:after", function(options){
 });
 
 App.start();
-
-
-/*
-App.module("Detail View", function(Mod, App, Backbone, Marionette, $, _) {
-  Mod.addInitializer(function(){
-    Mod.controller = new Controller({
-      region: App.mainRegion
-    });
-
-    Mod.controller.show();
-  });
-});
-*/
-
 
 
