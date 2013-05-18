@@ -31,7 +31,7 @@ var locationMapping = {
 };
 
 var MainView = Marionette.ItemView.extend({
-  className: "homepage bg_sp",
+  className: "homepage bg_rio",
   template: "#homepage" 
 });
 
@@ -123,7 +123,13 @@ var ApplicationView = Marionette.Layout.extend({
 
 
 var DetailView = Marionette.ItemView.extend({
-  template: "#detail-view"
+  template: "#detail-view",
+
+  serializeData: function() {
+    var out = this.model.toJSON();
+    out.backUrl = "#map" + this.options.lastLocationId;
+    return out;
+  }
 });
 
 var Controller = Marionette.Controller.extend({
@@ -148,13 +154,15 @@ var Controller = Marionette.Controller.extend({
       });
     }
     this.region.show(view);
+    this.lastLocationId = locationId;
   },
 
   showDetail: function(propertyId) {
     var self = this;
     api.property(propertyId, function(err, data) {
       var view = new DetailView({
-        model: new Backbone.Model(data)
+        model: new Backbone.Model(data),
+        lastLocationId: self.lastLocationId
       });
       self.region.show(view);
     });
